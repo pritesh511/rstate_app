@@ -1,19 +1,13 @@
 import icons from "@/constants/icons";
 import images from "@/constants/images";
-import { login } from "@/lip/appwrite";
 import React from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 const SignIn = () => {
   const handleClicSignup = async () => {
-    const result = await login();
-
-    if (result) {
-      console.log("login success");
-    } else {
-      console.log("error in login");
-    }
+    router.push("/");
   };
 
   return (
