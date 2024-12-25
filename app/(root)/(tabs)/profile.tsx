@@ -1,8 +1,28 @@
 import icons from "@/constants/icons";
 import images from "@/constants/images";
 import React from "react";
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+interface MySettingItemProps {
+  title: string;
+  icon: any;
+}
+
+const MySettingItem = (props: MySettingItemProps) => {
+  const { title, icon } = props;
+  return (
+    <TouchableOpacity className="py-4">
+      <View className="flex flex-row items-center justify-between">
+        <View className="flex flex-row items-center">
+          <Image source={icon} className="size-7" />
+          <Text className="font-rubik-medium ml-3">{title}</Text>
+        </View>
+        <Image source={icons.rightArrow} className="size-5" />
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const Profile = () => {
   return (
@@ -32,69 +52,23 @@ const Profile = () => {
           </View>
         </View>
         <View className="border border-primary-200 my-6"></View>
-        <View className="flex flex-row items-center justify-between">
-          <View className="flex flex-row items-center">
-            <Image source={icons.calendar} className="size-7" />
-            <Text className="font-rubik-medium ml-3">My Booking</Text>
+        <MySettingItem title="My Booking" icon={icons.calendar} />
+        <MySettingItem title="Payments" icon={icons.wallet} />
+        <View className="border border-primary-200 my-3"></View>
+        <MySettingItem title="Profile" icon={icons.person} />
+        <MySettingItem title="Notification" icon={icons.bell} />
+        <MySettingItem title="Security" icon={icons.shield} />
+        <MySettingItem title="Language" icon={icons.language} />
+        <MySettingItem title="Help Center" icon={icons.info} />
+        <MySettingItem title="Invite Friends" icon={icons.people} />
+        <TouchableOpacity className="py-4 mt-2">
+          <View className="flex flex-row items-center justify-between">
+            <View className="flex flex-row items-center">
+              <Image source={icons.logout} className="size-7" />
+              <Text className="font-rubik-medium ml-3 text-danger">Logout</Text>
+            </View>
           </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mb-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.wallet} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Payments</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="border border-primary-200 my-6"></View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.person} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Profile</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.bell} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Notification</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.shield} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Security</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.language} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Language</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.info} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Help Center</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.people} className="size-7" />
-            <Text className="font-rubik-medium ml-3">Invite Friends</Text>
-          </View>
-          <Image source={icons.rightArrow} className="size-5" />
-        </View>
-        <View className="flex flex-row items-center justify-between my-6 mt-0">
-          <View className="flex flex-row items-center">
-            <Image source={icons.logout} className="size-7" />
-            <Text className="font-rubik-medium ml-3 text-danger">Logout</Text>
-          </View>
-        </View>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
