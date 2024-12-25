@@ -11,3 +11,10 @@ Task:
 7. Add assets and constats
 8. Setup Fonts in layouts and app.json
 9. Set constant and variable in tailwind config file
+
+Date - 24/12/2024
+
+Task:
+
+1. Setup appwrite for BE
+2. Complete tabs navigation for navigate
