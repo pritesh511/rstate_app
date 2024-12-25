@@ -45,7 +45,7 @@ export default function Index() {
           </TouchableOpacity>
         </View>
         <Filters />
-        <View className="flex flex-row gap-5 w-full bg-black-200">
+        <View className="grid gap-5 w-full">
           <Card />
           <Card />
         </View>

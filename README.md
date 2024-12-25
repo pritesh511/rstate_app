@@ -18,3 +18,12 @@ Task:
 
 1. Setup appwrite for BE
 2. Complete tabs navigation for navigate
+
+Date - 25/12/2024
+
+Task:
+
+1. Complete profile page design
+2. Complete home page screen design
+3. Create component for Card and Feature card
+4. Create filter tag design
