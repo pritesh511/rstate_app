@@ -1,11 +1,4 @@
-import {
-  Text,
-  View,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { Text, View, Image, TouchableOpacity, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "@/constants/images";
 import icons from "@/constants/icons";
