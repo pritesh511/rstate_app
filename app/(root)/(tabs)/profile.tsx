@@ -1,6 +1,6 @@
 import icons from "@/constants/icons";
 import images from "@/constants/images";
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
+import ProfileModal from "@/components/ProfileModal";
 
 interface MySettingItemProps {
   title: string;
@@ -33,6 +34,7 @@ const MySettingItem = (props: MySettingItemProps) => {
 };
 
 const Profile = () => {
+  const [visibleModal, setVisibleModal] = useState(false);
   const handleSelectLogoutFromAlret = () => {
     router.push("/signIn");
   };
@@ -43,6 +45,8 @@ const Profile = () => {
       { text: "Logout", onPress: () => handleSelectLogoutFromAlret() },
     ]);
   };
+
+  const handleCloseProfileModal = () => setVisibleModal(false);
 
   return (
     <SafeAreaView>
@@ -60,10 +64,12 @@ const Profile = () => {
           <View className="flex flex-col items-center">
             <View className="relative">
               <Image source={images.avatar} />
-              <Image
-                source={icons.edit}
-                className="size-6 absolute bottom-0 right-0"
-              />
+              <TouchableOpacity onPress={() => setVisibleModal(true)}>
+                <Image
+                  source={icons.edit}
+                  className="size-6 absolute bottom-0 right-0"
+                />
+              </TouchableOpacity>
             </View>
             <Text className="text-center w-full font-rubik-medium text-2xl mt-3">
               Pritesh Makasana
@@ -92,6 +98,7 @@ const Profile = () => {
           </View>
         </TouchableOpacity>
       </ScrollView>
+      <ProfileModal open={visibleModal} closeModal={handleCloseProfileModal} />
     </SafeAreaView>
   );
 };

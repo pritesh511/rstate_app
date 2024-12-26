@@ -35,10 +35,13 @@ export const FeaturedCard = (props: any) => {
 };
 
 export const Card = (props: any) => {
-  const { data } = props;
+  const { data, onPressHandler } = props;
   const { title, location, price, rating, category, image } = data;
   return (
-    <TouchableOpacity className="flex-1 w-full mt-4 px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative">
+    <TouchableOpacity
+      onPress={onPressHandler}
+      className="flex-1 w-full mt-4 px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative"
+    >
       <View className="flex flex-1 w-full h-40 rounded-lg overflow-hidden">
         <Image source={image} className="size-full" />
       </View>

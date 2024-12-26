@@ -21,7 +21,9 @@ export default function Index() {
     <SafeAreaView className="bg-white h-full">
       <FlatList
         data={cards}
-        renderItem={({ item }) => <Card data={item} />}
+        renderItem={({ item }) => (
+          <Card data={item} onPressHandler={() => handleNavigate(item.id)} />
+        )}
         keyExtractor={(item) => item.category.toString()}
         contentContainerClassName="pb-24"
         showsVerticalScrollIndicator={false}
