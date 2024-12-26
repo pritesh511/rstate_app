@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Image,
@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import images from "@/constants/images";
@@ -14,6 +15,7 @@ import icons from "@/constants/icons";
 import { facilities, gallery } from "@/constants/data";
 
 const Property = () => {
+  const [loading, setLoading] = useState(false);
   const { id } = useLocalSearchParams();
   const windowHeight = Dimensions.get("window").height;
 
@@ -21,8 +23,13 @@ const Property = () => {
     router.back();
   };
 
+  const handleBookingHotel = () => {
+    setLoading(true);
+    setTimeout(() => router.push("/"), 1000);
+  };
+
   return (
-    <View>
+    <View className="pb-36">
       <ScrollView>
         <View className="relative w-full" style={{ height: windowHeight / 2 }}>
           <Image
@@ -242,10 +249,16 @@ const Property = () => {
               $17821
             </Text>
           </View>
-          <TouchableOpacity className="w-60 py-4 bg-primary-300 flex rounded-full flex-row items-center justify-center shadow-md shadow-zinc-400">
+          <TouchableOpacity
+            onPress={() => handleBookingHotel()}
+            className="w-60 py-4 bg-primary-300 flex rounded-full flex-row items-center justify-center shadow-md shadow-zinc-400"
+          >
             <Text className="text-center text-white font-rubik-medium">
               Booking Now
             </Text>
+            {loading && (
+              <ActivityIndicator className="ml-4" color={"#ffffff"} />
+            )}
           </TouchableOpacity>
         </View>
       </View>
