@@ -12,14 +12,24 @@ import icons from "@/constants/icons";
 import Search from "@/components/Search";
 import { FeaturedCard, Card } from "@/components/Card";
 import Filters from "@/components/Filters";
+import { router } from "expo-router";
+import { cards, featuredCards } from "@/constants/data";
 
 export default function Index() {
+  const handleNavigate = (Id: number) => {
+    router.push(`/properties/${Id}`);
+  };
+
+  const handleNavigateProfile = () => {
+    router.push("/profile");
+  };
+
   return (
     <SafeAreaView className="bg-white h-full">
       <FlatList
-        data={[1, 2, 3, 4]}
-        renderItem={({ item }) => <Card />}
-        keyExtractor={(item) => item.toString()}
+        data={cards}
+        renderItem={({ item }) => <Card data={item} />}
+        keyExtractor={(item) => item.category.toString()}
         contentContainerClassName="pb-24"
         showsVerticalScrollIndicator={false}
         numColumns={2}
@@ -27,7 +37,10 @@ export default function Index() {
         ListHeaderComponent={
           <View className="px-5">
             <View className="py-4 flex flex-row w-full items-center justify-between">
-              <TouchableOpacity className="flex flex-row items-center gap-2">
+              <TouchableOpacity
+                className="flex flex-row items-center gap-2"
+                onPress={() => handleNavigateProfile()}
+              >
                 <Image source={images.avatar} className="size-14" />
                 <View className="flex flex-col">
                   <Text className="text-black-200">Good Morning</Text>
@@ -50,9 +63,14 @@ export default function Index() {
               </TouchableOpacity>
             </View>
             <FlatList
-              data={[1, 2, 3]}
-              renderItem={({ item }) => <FeaturedCard />}
-              keyExtractor={(item) => item.toString()}
+              data={featuredCards}
+              renderItem={({ item }) => (
+                <FeaturedCard
+                  data={item}
+                  onPressHandler={() => handleNavigate(item.id)}
+                />
+              )}
+              keyExtractor={(item) => item.category.toString()}
               horizontal={true}
               bounces={false}
               showsHorizontalScrollIndicator={false}

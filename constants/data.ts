@@ -3,15 +3,17 @@ import images from "./images";
 
 export const cards = [
   {
-    title: "Card 1",
-    location: "Location 1",
+    id: 1,
+    title: "Surat Villa",
+    location: "Katargam, Surat",
     price: "$100",
     rating: 4.8,
     category: "house",
     image: images.newYork,
   },
   {
-    title: "Card 2",
+    id: 2,
+    title: "Vadodara Villa",
     location: "Location 2",
     price: "$200",
     rating: 3,
@@ -19,7 +21,8 @@ export const cards = [
     image: images.japan,
   },
   {
-    title: "Card 3",
+    id: 3,
+    title: "Ahmedabad Villa",
     location: "Location 3",
     price: "$300",
     rating: 2,
@@ -27,7 +30,8 @@ export const cards = [
     image: images.newYork,
   },
   {
-    title: "Card 4",
+    id: 4,
+    title: "Botad Apartment",
     location: "Location 4",
     price: "$400",
     rating: 5,
@@ -38,6 +42,7 @@ export const cards = [
 
 export const featuredCards = [
   {
+    id: 1,
     title: "Featured 1",
     location: "Location 1",
     price: "$100",
@@ -46,12 +51,22 @@ export const featuredCards = [
     category: "house",
   },
   {
+    id: 2,
     title: "Featured 2",
     location: "Location 2",
     price: "$200",
     rating: 3,
     image: images.japan,
     category: "flat",
+  },
+  {
+    id: 3,
+    title: "Featured 3",
+    location: "Location 3",
+    price: "$300",
+    rating: 3.8,
+    image: images.newYork,
+    category: "house3",
   },
 ];
 
