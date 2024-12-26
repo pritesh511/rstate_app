@@ -38,6 +38,15 @@ export const cards = [
     category: "villa",
     image: images.japan,
   },
+  {
+    id: 5,
+    title: "Delhi Villa",
+    location: "Location 5",
+    price: "$300",
+    rating: 5,
+    category: "flat",
+    image: images.newYork,
+  },
 ];
 
 export const featuredCards = [
