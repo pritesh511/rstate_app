@@ -1,8 +1,16 @@
 import icons from "@/constants/icons";
 import images from "@/constants/images";
 import React from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 interface MySettingItemProps {
   title: string;
@@ -25,6 +33,17 @@ const MySettingItem = (props: MySettingItemProps) => {
 };
 
 const Profile = () => {
+  const handleSelectLogoutFromAlret = () => {
+    router.push("/signIn");
+  };
+
+  const handleClickOnLogout = () => {
+    Alert.alert("Logout", "Are you sure want to logout", [
+      { text: "Cancel", onPress: () => console.log("You clicked cancel") },
+      { text: "Logout", onPress: () => handleSelectLogoutFromAlret() },
+    ]);
+  };
+
   return (
     <SafeAreaView>
       <ScrollView
@@ -61,7 +80,10 @@ const Profile = () => {
         <MySettingItem title="Language" icon={icons.language} />
         <MySettingItem title="Help Center" icon={icons.info} />
         <MySettingItem title="Invite Friends" icon={icons.people} />
-        <TouchableOpacity className="py-4 mt-2">
+        <TouchableOpacity
+          className="py-4 mt-2"
+          onPress={() => handleClickOnLogout()}
+        >
           <View className="flex flex-row items-center justify-between">
             <View className="flex flex-row items-center">
               <Image source={icons.logout} className="size-7" />
